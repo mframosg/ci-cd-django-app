@@ -1,0 +1,23 @@
+version: '3'
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - pip install virtualenv
+      - python -m virtualenv env
+      - source env/bin/activate
+      - pip install -r requirements.txt
+  build:
+    commands:
+      - python manage.py runserver
+      - python manage.py test
+  post_build:
+    commands:
+      - echo "Build complete"
+      - mkdir -p /var/www/myproject
+      - cp -r . /var/www/myproject
+      - cd /var/www/myproject
+      - systemctl restart myproject
+
