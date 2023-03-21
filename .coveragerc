@@ -1,0 +1,11 @@
+[run]
+omit=
+    */env/*
+    */htmlcov/*
+    */myapp/*
+    */hi/models.py
+    */hi/tests.py
+    */hi/migrations/*
+    */hi/__init__.py
+    */hi/admin.py
+    */hi/apps.py

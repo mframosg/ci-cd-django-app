@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'coverage',
+    'django_coverage_plugin',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +124,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+COVERAGE_MODULE_EXCLUDES = [
+    'tests$',  # Exclude tests.py files.
+    'settings$',  # Exclude settings.py files.
+    'urls$',  # Exclude urls.py files.
+    'locale$',
+    'migrations',
+    'hi\__init__.py',
+    'hi\migrations\__init__.py'
+]
+
+COVERAGE_MINIMUM_PERCENTAGE = 80
+
+COVERAGE_REPORT_HTML_OUTPUT_DIR = os.path.join(BASE_DIR, 'coverage')
+

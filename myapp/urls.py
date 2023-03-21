@@ -19,7 +19,7 @@ from hi.views import welcome, hi, day
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', welcome),
-    path('hi/<name>', hi),
-    path('day/<date>', day),
+    path('', welcome, name='welcome'),
+    path('hi/<name>', hi, name ='hi'),
+    path('day/<date>', day, name ='day'),
 ]
