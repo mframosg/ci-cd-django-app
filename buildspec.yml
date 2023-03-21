@@ -16,8 +16,4 @@ phases:
   post_build:
     commands:
       - echo "Build complete"
-      - mkdir -p /var/www/myproject
-      - cp -r . /var/www/myproject
-      - cd /var/www/myproject
-      - systemctl restart myproject
 
