@@ -9,3 +9,5 @@ omit=
     */hi/__init__.py
     */hi/admin.py
     */hi/apps.py
+[report]
+    fail_under = 80
